@@ -136,10 +136,12 @@ html.theme-dark .btn:active {
 }
 /* Semi transparente al hacer scroll */
 .header.scrolled {
-  background-color: color-mix(in srgb, var(--color-primary) 90%, transparent);
+  background-color: var(--color-primary);
+  opacity: 0.92;
   backdrop-filter: blur(6px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
+
 
 /* ==== LOGO Y TEXTO ==== */
 /* Efecto hover */
@@ -298,9 +300,11 @@ button#menuToggle:active {
 }
 /* Estado cuando el panel está scrolleado */
 .menu-header.scrolled {
-  background-color: color-mix(in srgb, var(--color-primary) 90%, transparent);
+  background-color: var(--color-primary);
+  opacity: 0.92;
   backdrop-filter: blur(6px);
 }
+
 /* Acercar X al título */
 .menu-header #closeMenu {
   margin-right: -4px;
