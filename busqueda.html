@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Club de Tiro Olímpico Costa Almería</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- JS -->
+    <script src="js/main.js"></script>
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Iconos Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+  </head>
+
+  <body class="transition-colors duration-500">
+    <!-- ========================================================
+          HEADER
+    ========================================================= -->
+    <header class="header">
+      <div class="mx-auto flex justify-between items-center py-3 px-14">
+        <!-- LOGO Y CLUB -->
+        <a href="index.html" class="flex items-center gap-4 -translate-x-3">
+          <!-- Logo principal -->
+          <img
+            src="img/logo.png"
+            alt="Logo Club de Tiro"
+            class="block sm:block md:block w-[70px] cursor-pointer logo-desktop"
+            title="Inicio"
+          />
+          <!-- Logo móvil -->
+          <img
+            src="img/logo-movil.png"
+            alt="Logo Club de Tiro móvil"
+            class="hidden w-[55px] cursor-pointer logo-mobile"
+            title="Inicio"
+          />
+          <!-- Nombre Club  -->
+          <h1 class="font-bold text-lg uppercase tracking-wide logo-text">
+            Club de Tiro
+            <span class="text-[var(--color-accent)]">Costa Almería</span>
+          </h1>
+        </a>
+
+        <!-- NAVEGACIÓN -->
+        <div class="flex items-center gap-7 translate-x-8">
+          <!-- Menú navegación -->
+          <nav class="hidden border-r pr-6">
+            <a href="#" class="active">Inicio</a>
+            <a href="#">El Club</a>
+            <a href="#">Cursos</a>
+            <a href="#">Competiciones</a>
+            <a href="#">Noticias</a>
+            <a href="#">Galería</a>
+            <a href="#">Contacto</a>
+          </nav>
+
+          <!-- ICONOS Y MENÚ -->
+          <div class="flex items-center gap-4">
+            <button class="icon-btn" title="Carrito">
+              <i data-lucide="shopping-cart"></i>
+            </button>
+            <button class="icon-btn" title="Usuario">
+              <i data-lucide="user"></i>
+            </button>
+            <button id="menuToggle" class="icon-btn" title="Abrir menú">
+              <i data-lucide="menu" id="menuIcon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========================================================
+          PANEL LATERAL
+    ========================================================= -->
+    <div
+      id="sideMenu"
+      class="shadow-2xl fixed top-0 right-0 h-full z-50 w-[280px] md:w-[320px] transition-all duration-300"
+    >
+      <div class="menu-bg fractal-bg w-full h-full flex flex-col">
+        <div class="flex-1 overflow-y-auto pb-24">
+          <!-- CABECERA-->
+          <div>
+            <div class="menu-header">
+              <h2>Menú</h2>
+              <button id="closeMenu" class="icon-btn" title="Cerrar menú">
+                <i data-lucide="x"></i>
+              </button>
+            </div>
+
+            <!-- BUSCADOR -->
+            <div class="p-4">
+              <div
+                id="menuSearchForm"
+                class="flex items-center rounded-md px-3 py-2"
+              >
+                <i data-lucide="search" class="w-4 h-4 cursor-pointer"></i>
+                <span class="separator-line mx-2 h-5 w-[1px] opacity-70"></span>
+                <input
+                  id="menuSearchInput"
+                  type="text"
+                  placeholder="Buscar..."
+                  class="ml-2 flex-1 outline-none bg-transparent"
+                />
+              </div>
+              <!-- Línea separadora -->
+              <hr class="menu-divider" />
+            </div>
+
+            <!-- ENLACES DEL MENÚ -->
+            <div class="px-4 pt-0 pb-4 flex flex-col gap-3">
+              <a href="index.html" class="menu-link">Inicio</a>
+              <a href="#" class="menu-link">El Club</a>
+              <a href="#" class="menu-link">Cursos</a>
+              <a href="#" class="menu-link">Competiciones</a>
+              <a href="#" class="menu-link">Noticias</a>
+              <a href="#" class="menu-link">Galería</a>
+              <a href="#" class="menu-link">Contacto</a>
+
+              <hr class="menu-divider" />
+
+              <!-- Cuadro de usuario -->
+              <div
+                class="user-box rounded-md p-3 flex flex-col items-start gap-2 shadow-md"
+              >
+                <a
+                  href="#"
+                  class="flex items-center gap-2 font-semibold transition-colors duration-300 hover:text-[#EAC42D]"
+                >
+                  <i
+                    data-lucide="user"
+                    class="w-5 h-5 transition-colors duration-300"
+                  ></i>
+                  <span>PERFIL DE USUARIO</span>
+                </a>
+                <p class="text-sm text-gray-600 italic">
+                  No has iniciado sesión
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FOOTER PANEL -->
+        <div
+          class="language-darkmode-container w-full flex items-center justify-between px-6 py-4 border-t border-white/20 z-50"
+        >
+          <!-- Lenguaje -->
+          <div class="language-select flex items-center gap-2">
+            <i data-lucide="globe" class="w-5 h-5"></i>
+            <select
+              class="bg-transparent border-none outline-none font-semibold"
+            >
+              <option>ES</option>
+              <option>EN</option>
+            </select>
+          </div>
+
+          <!-- Modo oscuro -->
+          <div id="darkModeSwitch" class="cursor-pointer">
+            <div
+              class="switch-track relative w-11 h-6 rounded-full bg-white/30"
+            >
+              <div
+                class="switch-thumb absolute top-[2px] left-[2px] w-5 h-5 rounded-full bg-white transition-all duration-300"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div id="overlay"></div>
+
+    <!-- ========================================================= -->
+    <!--  PÁGINA DE BÚSQUEDA -->
+    <!-- ========================================================= -->
+    <main class="page-busqueda">
+      <!-- HERO -->
+      <section
+        class="relative h-[24vh] md:h-[28vh] bg-cover bg-center flex items-center"
+        style="background-image: url('img/hero-busqueda.png')"
+      >
+        <div class="absolute inset-0 bg-[#0B3C5D]/70"></div>
+        <div
+          class="relative z-10 text-white max-w-3xl pl-[clamp(2.5rem,12vw,12rem)] -mt-[clamp(1.5rem,4vh,2.5rem)] text-left"
+        >
+          <h2
+            class="font-extrabold uppercase tracking-wide mb-2 text-[clamp(1.8rem,3vw,2.8rem)] leading-tight whitespace-nowrap mt-2"
+          >
+            Cursos <span class="text-[color:var(--color-accent)]">de Tiro</span>
+          </h2>
+          <p class="text-[clamp(1.1rem,1.8vw,1.3rem)] opacity-90 mt-5">
+            Desde iniciación hasta preparación para competición.
+          </p>
+        </div>
+      </section>
+
+      <!-- FORMULARIO DE BÚSQUEDA -->
+      <section class="py-12 px-6 md:px-16 bg-gray-100 text-center">
+        <div class="max-w-2xl mx-auto">
+          <form
+            class="flex items-center justify-center gap-4 flex-wrap sm:flex-nowrap"
+          >
+            <input
+              type="text"
+              placeholder="Buscar..."
+              class="border border-gray-300 rounded-md px-4 py-2 w-full sm:w-[70%] outline-none shadow-sm focus:ring-2 focus:ring-[var(--color-secondary)]"
+            />
+            <button
+              type="submit"
+              class="btn uppercase tracking-wide flex items-center gap-2 justify-center"
+            >
+              Buscar
+            </button>
+
+            <!-- Botón filtro -->
+            <button
+              type="button"
+              class="btn icono-circular"
+              title="Filtrar resultados"
+            >
+              <i data-lucide="filter"></i>
+            </button>
+          </form>
+        </div>
+
+        <p
+          class="resultado-titulo text-xl font-bold mt-10 text-[var(--color-primary)]"
+          style="font-style: italic"
+        >
+          Resultados para “carabina”
+        </p>
+      </section>
+
+      <!-- RESULTADOS -->
+      <section class="py-10 px-6 md:px-16 bg-gray-50">
+        <div class="flex flex-wrap justify-between gap-10">
+          <!-- Tarjeta 1 -->
+          <article class="card-busqueda">
+            <img src="img/carabina1.png" alt="Curso Licencia F Pistola" />
+            <div class="card-content">
+              <h4>Curso Licencia F - Carabina 50 M</h4>
+              <p>
+                Preparación teórico-práctica para la obtención de la Licencia F,
+                enfocada en carabina de 50 m.
+              </p>
+              <div class="precio-btn">
+                <span>350 €</span>
+                <div class="flex items-center gap-3">
+                  <button class="btn icono-circular" title="Añadir al carrito">
+                    <i data-lucide="shopping-cart"></i>
+                  </button>
+                  <a href="#" class="btn text-sm"><span>Ver detalles</span></a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta 2 -->
+          <article class="card-busqueda">
+            <img src="img/carabina3.jpg" alt="Curso Licencia E Carabina 25m" />
+            <div class="card-content">
+              <h4>Curso Licencia E - Carabina 50 M</h4>
+              <p>
+                Curso de iniciación para obtener la Licencia E, válida para
+                escopetas y armas recreativas básicas.
+              </p>
+              <div class="precio-btn">
+                <span>350 €</span>
+                <div class="flex items-center gap-3">
+                  <button class="btn icono-circular" title="Añadir al carrito">
+                    <i data-lucide="shopping-cart"></i>
+                  </button>
+                  <a href="#" class="btn text-sm"><span>Ver detalles</span></a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta 3 -->
+          <article class="card-busqueda">
+            <img src="img/carabina2.png" alt="Curso Licencia D Carabina 25m" />
+            <div class="card-content">
+              <h4>Curso Licencia D - Carabina 50 M</h4>
+              <p>
+                Formación para la Licencia D, centrada en rifles de caza mayor y
+                práctica de tiro con seguridad.
+              </p>
+              <div class="precio-btn">
+                <span>400 €</span>
+                <div class="flex items-center gap-3">
+                  <button class="btn icono-circular" title="Añadir al carrito">
+                    <i data-lucide="shopping-cart"></i>
+                  </button>
+                  <a href="#" class="btn text-sm"><span>Ver detalles</span></a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta 4 -->
+          <article class="card-busqueda">
+            <img src="img/carabina4.jpg" alt="Curso Avanzado Carabina" />
+            <div class="card-content">
+              <h4>Curso Avanzado - Carabina de Precisión</h4>
+              <p>
+                Entrenamiento avanzado para tiradores que buscan mejorar su
+                precisión en distancias largas.
+              </p>
+              <div class="precio-btn">
+                <span>450 €</span>
+                <div class="flex items-center gap-3">
+                  <button class="btn icono-circular" title="Añadir al carrito">
+                    <i data-lucide="shopping-cart"></i>
+                  </button>
+                  <a href="#" class="btn text-sm"><span>Ver detalles</span></a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================================
+          FOOTER
+    ========================================================= -->
+    <footer class="site-footer pt-10 pb-6">
+      <div class="container mx-auto px-4">
+        <!-- Columnas principales -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+          <!-- Contacto -->
+          <div>
+            <h4
+              class="font-bold text-lg mb-3 uppercase tracking-wide text-center"
+            >
+              Contacto
+            </h4>
+            <ul class="space-y-2 text-sm text-left mx-auto w-fit">
+              <!-- Campo de tiro de Gádor -->
+              <li class="flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <a
+                  href="https://maps.app.goo.gl/JAphdzb65JCNVdXF9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer-link"
+                >
+                  Campo de Tiro de Gádor (04560, Almería)
+                </a>
+              </li>
+
+              <!-- Campo de tiro de Roquetas -->
+              <li class="flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <a
+                  href="https://maps.app.goo.gl/XpKo6eNqcVYaY5Ya7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer-link"
+                >
+                  Campo de Tiro de Roquetas de Mar (04720, Almería)
+                </a>
+              </li>
+
+              <!-- WhatsApp -->
+              <li class="flex items-center gap-2">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                <a
+                  href="https://wa.me/34695791198"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer-link"
+                >
+                  695 79 11 98
+                </a>
+              </li>
+
+              <!-- Correo -->
+              <li class="flex items-center gap-2">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                <a
+                  href="mailto:info@cdtirocostadealmeria.com"
+                  class="footer-link"
+                >
+                  info@cdtirocostadealmeria.com
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Legal -->
+          <div class="text-center">
+            <h4 class="font-bold text-lg mb-3 uppercase tracking-wide">
+              Legal
+            </h4>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="#">Política de Privacidad</a>
+              </li>
+              <li>
+                <a href="#">Política de Cookies</a>
+              </li>
+              <li><a href="#">Aviso legal</a></li>
+              <li>
+                <a href="#">Términos y condiciones</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Redes sociales -->
+          <div class="text-center">
+            <h4 class="font-bold text-lg mb-3 uppercase tracking-wide">
+              Síguenos
+            </h4>
+
+            <img
+              src="img/redes.jpg"
+              alt="Redes sociales"
+              class="footer-redes mx-auto mb-4 h-12 w-auto rounded shadow-md object-cover"
+            />
+
+            <div class="flex justify-center gap-5 text-2xl footer-social">
+              <a
+                href="#"
+                target="_blank"
+                aria-label="Facebook"
+                class="footer-icon"
+              >
+                <i data-lucide="facebook"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                aria-label="Instagram"
+                class="footer-icon"
+              >
+                <i data-lucide="instagram"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                aria-label="YouTube"
+                class="footer-icon"
+              >
+                <i data-lucide="youtube"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                aria-label="Twitter"
+                class="footer-icon"
+              >
+                <i data-lucide="twitter"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                aria-label="LinkedIn"
+                class="footer-icon"
+              >
+                <i data-lucide="linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="mt-6 text-center text-[13px] leading-tight">
+          © 2025 Club Deportivo de Tiro Costa de Almería. Todos los derechos
+          reservados.<br />
+          By <a href="#" class="text-[#EAC42D] hover:underline">ZeroPoint</a>.
+        </div>
+      </div>
+
+      <!-- Botón “Subir arriba” -->
+      <button
+        id="toTop"
+        class="hidden fixed bottom-8 right-8 outline-none z-[9999] transition transform hover:scale-110"
+        title="Subir arriba"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 64 80"
+          fill="none"
+          stroke="#EAC42D"
+          stroke-width="3.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="w-16 h-16 icon-diana-bala overflow-visible"
+        >
+          <circle class="diana" cx="32" cy="45" r="16"></circle>
+          <circle class="diana" cx="32" cy="45" r="9"></circle>
+          <circle class="diana" cx="32" cy="45" r="3"></circle>
+          <path
+            class="flecha"
+            d="M32 28 L32 5 M32 5 L27 10 M32 5 L37 10"
+          ></path>
+        </svg>
+      </button>
+    </footer>
+  </body>
+</html>
