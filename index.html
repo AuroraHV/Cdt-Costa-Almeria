@@ -18,6 +18,15 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     >
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HJGHHLQSKZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-HJGHHLQSKZ');
+    </script>
   </head>
 
   <body class="transition-colors duration-500">
@@ -55,7 +64,7 @@
           <nav class="hidden border-r pr-6">
             <a href="#" class="active">Inicio</a>
             <a href="#">El Club</a>
-            <a href="#">Cursos</a>
+            <a href="producto.html">Cursos</a>
             <a href="#">Competiciones</a>
             <a href="#">Noticias</a>
             <a href="#">Galería</a>
@@ -98,28 +107,35 @@
 
             <!-- BUSCADOR -->
             <div class="p-4">
-              <div
-                id="menuSearchForm"
-                class="flex items-center rounded-md px-3 py-2"
-              >
-                <i data-lucide="search" class="w-4 h-4 cursor-pointer"></i>
+              <form id="menuSearchForm" action="busqueda.html" method="GET" class="flex items-center rounded-md px-3 py-2">
+
+                <!-- Botón de la lupa -->
+                <button type="submit" id="menuSearchBtn" class="flex items-center justify-center w-6 h-6 cursor-pointer">
+                  <a href="busqueda.html" aria-label="Ir a página de búsqueda">
+                    <i data-lucide="search" class="w-4 h-4 cursor-pointer"></i>
+                  </a>
+                </button>
+
                 <span class="separator-line mx-2 h-5 w-[1px] opacity-70"></span>
+
+                <!-- Campo de entrada -->
                 <input
                   id="menuSearchInput"
+                  name="q"
                   type="text"
                   placeholder="Buscar..."
-                  class="ml-2 flex-1 outline-none bg-transparent"
-                >
-              </div>
-              <!-- Línea separadora -->
-              <hr class="menu-divider" >
+                  class="ml-2 flex-1 outline-none bg-transparent text-black"
+                />
+              </form>
+
+              <hr class="menu-divider">
             </div>
 
             <!-- ENLACES DEL MENÚ -->
             <div class="px-4 pt-0 pb-4 flex flex-col gap-3">
               <a href="index.html" class="menu-link">Inicio</a>
               <a href="#" class="menu-link">El Club</a>
-              <a href="#" class="menu-link">Cursos</a>
+              <a href="producto.html" class="menu-link">Cursos</a>
               <a href="#" class="menu-link">Competiciones</a>
               <a href="#" class="menu-link">Noticias</a>
               <a href="#" class="menu-link">Galería</a>
@@ -231,7 +247,7 @@
                 <span class="text-[#EAC42D]">tiradores</span>
               </h2>
               <p class="mt-4 text-lg">Formación, precisión y disciplina</p>
-              <a href="#" class="btn mt-6 px-6 py-3 text-lg"> VER CURSOS </a>
+              <a href="producto.html" class="btn mt-6 px-6 py-3 text-lg"> VER CURSOS </a>
             </div>
           </div>
 
@@ -700,5 +716,15 @@
         </svg>
       </button>
     </footer>
+    <script>
+    lucide.createIcons();
+
+    const form = document.getElementById("menuSearchForm");
+    const iconBtn = document.getElementById("menuSearchBtn");
+
+    iconBtn.addEventListener("click", () => {
+    form.submit();
+    });
+    </script>
   </body>
 </html>

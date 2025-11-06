@@ -120,6 +120,11 @@ html.theme-dark .btn:active {
   transform: scale(0.96);
 }
 
+#menuSearchForm button svg {
+  pointer-events: auto !important;
+  cursor: pointer;
+}
+
 
 /* =========================================================
    HEADER GLOBAL

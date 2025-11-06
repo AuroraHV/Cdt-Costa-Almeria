@@ -95,24 +95,31 @@
                 <i data-lucide="x"></i>
               </button>
             </div>
-
+            
             <!-- BUSCADOR -->
             <div class="p-4">
-              <div
-                id="menuSearchForm"
-                class="flex items-center rounded-md px-3 py-2"
-              >
-                <i data-lucide="search" class="w-4 h-4 cursor-pointer"></i>
+              <form id="menuSearchForm" action="busqueda.html" method="GET" class="flex items-center rounded-md px-3 py-2">
+
+                <!-- Botón de la lupa -->
+                <button type="submit" id="menuSearchBtn" class="flex items-center justify-center w-6 h-6 cursor-pointer">
+                  <a href="busqueda.html" aria-label="Ir a página de búsqueda">
+                    <i data-lucide="search" class="w-4 h-4 cursor-pointer"></i>
+                  </a>
+                </button>
+
                 <span class="separator-line mx-2 h-5 w-[1px] opacity-70"></span>
+
+                <!-- Campo de entrada -->
                 <input
                   id="menuSearchInput"
+                  name="q"
                   type="text"
                   placeholder="Buscar..."
-                  class="ml-2 flex-1 outline-none bg-transparent"
-                >
-              </div>
-              <!-- Línea separadora -->
-              <hr class="menu-divider" >
+                  class="ml-2 flex-1 outline-none bg-transparent text-black"
+                />
+              </form>
+
+              <hr class="menu-divider">
             </div>
 
             <!-- ENLACES DEL MENÚ -->
@@ -552,5 +559,15 @@
         </svg>
       </button>
     </footer>
+    <script>
+      lucide.createIcons();
+
+      const form = document.getElementById("menuSearchForm");
+      const iconBtn = document.getElementById("menuSearchBtn");
+
+      iconBtn.addEventListener("click", () => {
+        form.submit();
+      });
+    </script>
   </body>
 </html>
