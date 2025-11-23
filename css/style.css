@@ -3,20 +3,20 @@
    ========================================================= */
 
 /* Importar Oswald y Roboto */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Condensed:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Condensed:wght@400;700&display=swap");
 
 :root {
   /* Colores */
-  --color-primary: #0D1F35; /* Azul principal corporativo */
-  --color-secondary: #3E8DC1;   
-  --color-botton: #CC4747; /* Rojo complementario */
-  --color-accent: #EAC42D; /* Amarillo acento */
+  --color-primary: #0d1f35; /* Azul principal corporativo */
+  --color-secondary: #3e8dc1;
+  --color-botton: #cc4747; /* Rojo complementario */
+  --color-accent: #eac42d; /* Amarillo acento */
   --color-accent2: #11bcf4;
-  --color-bg: #E3E3E3; /* Fondo claro base */
+  --color-bg: #e3e3e3; /* Fondo claro base */
   --color-bg-panel: #f1f1f1; /* Fondo panel lateral */
   --color-text: #000000; /* Texto negro */
-  --color-text2: #FFFFFF; /* Texto blanco */
-  --color-cover: #b8b8b8; /* Cuadros */
+  --color-text2: #ffffff; /* Texto blanco */
+  --color-cover: #919191; /* Cuadros */
 
   /* Tipografía fluida */
   --h1: clamp(2.2rem, 4vw, 3.5rem);
@@ -30,9 +30,8 @@
 
   /* Bordes y sombras */
   --radius: 0.6rem;
-  --shadow: 0 4px 12px rgba(0,0,0,0.18);
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
-
 
 /* ==== MODO OSCURO ==== */
 :root.theme-dark {
@@ -48,29 +47,48 @@
    ========================================================= */
 
 /* Títulos */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Oswald', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 /* Cuerpo */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
-th, td, small, p.text-xs, p.text-sm, a {
-  font-family: 'Roboto Condensed', sans-serif;
+th,
+td,
+small,
+p.text-xs,
+p.text-sm,
+a {
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 /* Tamaños */
-h1 { font-size: var(--h1); }
-h2 { font-size: var(--h2); }
-h3 { font-size: var(--h3); }
-p, li { font-size: var(--text-base); }
+h1 {
+  font-size: var(--h1);
+}
+h2 {
+  font-size: var(--h2);
+}
+h3 {
+  font-size: var(--h3);
+}
+p,
+li {
+  font-size: var(--text-base);
+}
 
 /* ==== MODO OSCURO ==== */
 html.theme-dark body {
@@ -79,19 +97,18 @@ html.theme-dark body {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-
 /* =========================================================
    BOTONES GLOBALES
    ========================================================= */
 .btn {
   display: inline-block;
   font-size: var(--btn);
-  color: var( --color-text2);
+  color: var(--color-text2);
   padding: clamp(0.5rem, 0.9vw, 0.7rem) clamp(1.1rem, 1.9vw, 1.9rem);
   font-weight: 600;
   letter-spacing: 0.2px;
   text-transform: uppercase;
-  background: linear-gradient(135deg, #CC4747 0%, #a83636 100%);
+  background: linear-gradient(135deg, #cc4747 0%, #a83636 100%);
   border-radius: 1.9rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
   transition: all 0.3s ease;
@@ -107,7 +124,7 @@ html.theme-dark body {
 
 /* ==== MODO OSCURO ==== */
 html.theme-dark .btn {
-  background: linear-gradient(135deg, #CC4747 0%, #a83636 100%);
+  background: linear-gradient(135deg, #cc4747 0%, #a83636 100%);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
   transition: all 0.3s ease;
 }
@@ -124,7 +141,13 @@ html.theme-dark .btn:active {
   pointer-events: auto !important;
   cursor: pointer;
 }
-
+/* -----------------------------
+   INDICADOR UNIVERSAL DE FOCO 
+   ----------------------------- */
+:focus-visible {
+  outline: 3px solid #eac42d; /* color dorado de tu web */
+  outline-offset: 3px;
+}
 
 /* =========================================================
    HEADER GLOBAL
@@ -144,9 +167,8 @@ html.theme-dark .btn:active {
   background-color: var(--color-primary);
   opacity: 0.92;
   backdrop-filter: blur(6px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
-
 
 /* ==== LOGO Y TEXTO ==== */
 /* Efecto hover */
@@ -256,10 +278,20 @@ button#menuToggle:active {
   transform: scale(0.9);
 }
 
-
 /* =========================================================
    PANEL LATERAL DEL HEADER
    ========================================================= */
+
+#sideMenu.side-menu-open {
+  transform: translateX(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+#sideMenu.side-menu-closed {
+  transform: translateX(100%);
+}
+
 #sideMenu {
   position: fixed;
   top: 0;
@@ -270,12 +302,11 @@ button#menuToggle:active {
   background-color: var(--color-bg-panel);
   color: var(--color-primary);
   z-index: 100;
-  transform: translateX(calc(100%)); /* Oculto fuera de la pantalla */
   transition: transform 0.3s ease-in-out;
   overflow-y: auto;
   box-shadow: -5px 0 20px rgba(0, 0, 0, 0.35);
   overflow-x: hidden;
-  overflow-y: auto; 
+  overflow-y: auto;
 }
 /* Aparece al abrir el menú */
 #sideMenu.open {
@@ -397,7 +428,7 @@ button#menuToggle:active {
   transition: all 0.3s ease;
   color: var(--color-accent);
   display: inline-block;
-  width: 0.6rem; 
+  width: 0.6rem;
   text-align: center;
 }
 #sideMenu .menu-link::before {
@@ -440,7 +471,7 @@ button#menuToggle:active {
   border: 2px solid var(--color-primary);
 }
 #sideMenu .user-box i {
-  stroke: var(--color-primary)
+  stroke: var(--color-primary);
 }
 #sideMenu .user-box p {
   margin-top: 0.4rem;
@@ -463,10 +494,16 @@ button#menuToggle:active {
   align-items: center;
   justify-content: space-between;
   z-index: 50;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 /* Lenguaje */
+#languageSelect:focus-visible {
+  outline: 3px solid #eac42d;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
 .language-darkmode-container svg {
   stroke: var(--color-accent);
 }
@@ -476,6 +513,7 @@ button#menuToggle:active {
   gap: 0.4rem;
   color: var(--color-text2);
   font-weight: 600;
+  outline-offset: 3px;
 }
 .language-select select {
   background: transparent;
@@ -485,7 +523,7 @@ button#menuToggle:active {
   cursor: pointer;
 }
 .language-select option {
-  background-color: var(--color-primary);;
+  background-color: var(--color-primary);
 }
 
 /* Modo oscuro */
@@ -521,7 +559,7 @@ button#menuToggle:active {
 #overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45); 
+  background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
   opacity: 0;
@@ -533,7 +571,6 @@ button#menuToggle:active {
   opacity: 1;
   pointer-events: auto;
 }
-
 
 /* =========================================================
    HERO
@@ -570,7 +607,11 @@ button#menuToggle:active {
   filter: blur(2px) brightness(1.15);
   opacity: 0.7;
   mask-image: radial-gradient(circle at center, black 65%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle at center, black 65%, transparent 100%);
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    black 65%,
+    transparent 100%
+  );
   z-index: 0;
 }
 /* Capa principal nítida */
@@ -587,10 +628,10 @@ button#menuToggle:active {
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(9, 22, 36, 0.85) 0%,   
-    rgba(11, 35, 55, 0.55) 35%, 
-    rgba(15, 45, 65, 0.15) 70%, 
-    rgba(15, 45, 65, 0) 100%    
+    rgba(9, 22, 36, 0.85) 0%,
+    rgba(11, 35, 55, 0.55) 35%,
+    rgba(15, 45, 65, 0.15) 70%,
+    rgba(15, 45, 65, 0) 100%
   );
   z-index: 2;
 }
@@ -629,7 +670,6 @@ html.theme-dark .carousel-slide {
   transition: opacity 1s ease-in-out;
 }
 
-
 /* =========================================================
    NOTICIAS
    ========================================================= */
@@ -644,11 +684,13 @@ html.theme-dark .carousel-slide {
   justify-content: flex-start;
   overflow: hidden;
   min-height: 580px;
-  background:
-    linear-gradient(rgba(255,255,255,0.9), rgba(255, 255, 255, 0.452)),
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.452)
+    ),
     url("../img/fondo.png") center / cover no-repeat;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 .card-fondo img {
@@ -683,8 +725,8 @@ html.theme-dark .carousel-slide {
   color: #444;
   font-style: italic;
   display: flex;
-  align-items: center;  
-  font-size: var(--text-base) !important;      
+  align-items: center;
+  font-size: var(--text-base) !important;
 }
 
 /* Icono */
@@ -706,13 +748,12 @@ html.theme-dark .carousel-slide {
   box-sizing: content-box;
 }
 
-
 /* =========================================================
    FRANJA
    ========================================================= */
 .franja {
   position: relative;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   text-align: center;
   min-height: 420px;
   display: flex;
@@ -729,11 +770,16 @@ html.theme-dark .carousel-slide {
   bottom: -11px;
   left: 0;
   right: 0;
-  background: var(--franja-img, url("../img/franja.jpg")) center / cover fixed no-repeat;
+  background: var(--franja-img, url("../img/franja.jpg")) center / cover fixed
+    no-repeat;
   filter: blur(1px) brightness(1.15);
   opacity: 0.7;
   mask-image: radial-gradient(circle at center, black 65%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle at center, black 65%, transparent 100%);
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    black 65%,
+    transparent 100%
+  );
   z-index: 0;
 }
 /* Capa superior nítida */
@@ -741,14 +787,18 @@ html.theme-dark .carousel-slide {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--franja-img, url("../img/franja.jpg")) center / cover fixed no-repeat;
+  background: var(--franja-img, url("../img/franja.jpg")) center / cover fixed
+    no-repeat;
   z-index: 1;
 }
 /* Overlay */
 .franja .overlay {
   position: absolute;
   inset: 0;
-  background: var(--franja-overlay, rgba(11, 60, 93, 0.55)); /* azul por defecto */
+  background: var(
+    --franja-overlay,
+    rgba(11, 60, 93, 0.55)
+  ); /* azul por defecto */
   z-index: 2;
 }
 
@@ -775,11 +825,13 @@ html.theme-dark .carousel-slide {
    ========================================================= */
 
 .fondo-tabla {
-  background:
-    linear-gradient(rgba(255,255,255,0.9), rgba(255, 255, 255, 0.452)),
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.452)
+    ),
     url("../img/fondo.png") center/cover no-repeat;
-  border-radius: 0 .75rem .75rem 0;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  border-radius: 0 0.75rem 0.75rem 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   padding: 2rem;
@@ -870,7 +922,18 @@ html.theme-dark .carousel-slide {
   opacity: 0.2;
   transform: scale(1.6);
 }
+.icono-info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px; /* no afecta al diseño del icono */
+  border-radius: 6px; /* hace visible el foco */
+}
 
+.icono-info:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
 
 /* =========================================================
    FOOTER
@@ -910,7 +973,6 @@ footer a:hover {
   margin-bottom: 1.5rem;
 }
 
-
 /* =========================================================
    BOTÓN SUBIR
    ========================================================= */
@@ -920,8 +982,8 @@ footer a:hover {
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
 #toTop svg {
-  width: 50px; 
-  height: 60px; 
+  width: 50px;
+  height: 60px;
   transition: transform 0.3s ease;
 }
 /* Estado visible */
@@ -956,15 +1018,42 @@ footer a:hover {
   animation: shootUpSmooth 4s cubic-bezier(0.25, 0.8, 0.4, 1) forwards;
   transform-origin: center;
 }
+
+#toTop:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 8px;
+  border-radius: 12px;
+}
 /* Animación del vuelo */
 @keyframes shootUpSmooth {
-  0% { transform: translateY(0); opacity: 1; }
-  10% { transform: translateY(-150px); opacity: 0.95; }
-  30% { transform: translateY(-450px); opacity: 0.8; }
-  50% { transform: translateY(-850px); opacity: 0.6; }
-  70% { transform: translateY(-1300px); opacity: 0.4; }
-  90% { transform: translateY(-1800px); opacity: 0.2; }
-  100% { transform: translateY(-2200px); opacity: 0; }
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  10% {
+    transform: translateY(-150px);
+    opacity: 0.95;
+  }
+  30% {
+    transform: translateY(-450px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-850px);
+    opacity: 0.6;
+  }
+  70% {
+    transform: translateY(-1300px);
+    opacity: 0.4;
+  }
+  90% {
+    transform: translateY(-1800px);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-2200px);
+    opacity: 0;
+  }
 }
 /* Oculta el botón tras la animación */
 @keyframes hideButtonAfterShoot {
@@ -973,7 +1062,6 @@ footer a:hover {
     pointer-events: none;
   }
 }
-
 
 /* =========================================================
    MODO OSCURO 
@@ -1033,7 +1121,7 @@ html.theme-dark .language-darkmode-container {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 html.theme-dark .language-select select {
-  color: var(--color-text2);;
+  color: var(--color-text2);
 }
 html.theme-dark #darkModeSwitch .switch-track {
   background: var(--color-cover);
@@ -1051,14 +1139,16 @@ html.theme-dark #darkModeSwitch.active .switch-thumb {
     NOTICIAS (modo oscuro)
    ========================================================= */
 html.theme-dark #noticias h2 {
-  color: var(--color-text2)
+  color: var(--color-text2);
 }
 /* Tarjetas noticias */
 html.theme-dark .card-fondo {
-  background:
-    linear-gradient(rgba(112, 112, 112, 0.123), rgba(117, 117, 117, 0.493)),
+  background: linear-gradient(
+      rgba(112, 112, 112, 0.123),
+      rgba(117, 117, 117, 0.493)
+    ),
     url("../img/fondo.png") center/cover no-repeat;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
 }
 html.theme-dark .card-fondo h3,
 html.theme-dark .card-fondo p {
@@ -1070,15 +1160,17 @@ html.theme-dark .card-fondo p {
    ========================================================= */
 html.theme-dark .tabla-competiciones thead tr {
   background: rgba(255, 255, 255, 0.164);
-  border-bottom: 2px solid #EAC42D;
+  border-bottom: 2px solid #eac42d;
 }
 
 html.theme-dark .fondo-tabla {
-  background:
-    linear-gradient(rgba(112, 112, 112, 0.123), rgba(95, 95, 95, 0.493)),
+  background: linear-gradient(
+      rgba(112, 112, 112, 0.123),
+      rgba(95, 95, 95, 0.493)
+    ),
     url("../img/fondo.png") center/cover no-repeat;
   color: #000;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
 }
 
 /* =========================================================
@@ -1086,25 +1178,20 @@ html.theme-dark .fondo-tabla {
    ========================================================= */
 html.theme-dark body,
 html.theme-dark *:not(svg):not(img) {
-  transition:
-    background-color .35s ease,
-    color .35s ease,
-    border-color .35s ease,
-    box-shadow .35s ease;
+  transition: background-color 0.35s ease, color 0.35s ease,
+    border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 /* Redes sociales */
 html.theme-dark .footer-social i,
 html.theme-dark .footer-social svg {
-  transition: transform .25s ease, color .25s ease;
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 html.theme-dark .footer-social i:hover,
 html.theme-dark .footer-social svg:hover {
   transform: translateY(-3px) scale(1.12);
   color: var(--color-accent);
 }
-
-
 
 /* =========================================================
    RESPONSIVE
@@ -1155,13 +1242,12 @@ html.theme-dark .footer-social svg:hover {
   }
 }
 
-
 @media (max-width: 768px) {
   #hero-carousel {
     min-height: 40vh;
   }
   #hero-carousel > div {
-    height: 40vh; 
+    height: 40vh;
   }
   .carousel-slide .hero-content {
     min-height: 35vh;
@@ -1206,20 +1292,19 @@ html.theme-dark .footer-social svg:hover {
   }
 }
 
-
 /* =========================================================
     Ajuste imagen competiciones responsive
    ========================================================= */
 @media (max-width: 768px) {
   section.py-16 img {
     height: 260px;
-    max-height: 260px ;
+    max-height: 260px;
   }
 }
 /* panel lateral */
 @media (max-width: 768px) {
   .card-fondo img {
-    height: 300px;        
+    height: 300px;
   }
 }
 
@@ -1230,7 +1315,7 @@ html.theme-dark .footer-social svg:hover {
   .tabla-competiciones th,
   .tabla-competiciones td {
     padding-top: 0.8rem;
-    padding-bottom: 0.8rem ;
+    padding-bottom: 0.8rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     font-size: 0.95rem;
@@ -1261,10 +1346,10 @@ html.theme-dark .footer-social svg:hover {
    ========================================================= */
 @media (max-width: 768px) {
   .carousel-slide .hero-content {
-    padding-left: 3.8rem; 
+    padding-left: 3.8rem;
   }
   .carousel-prev {
-    left: 0.8rem; 
+    left: 0.8rem;
   }
   .carousel-next {
     right: 0.8rem;
@@ -1320,7 +1405,6 @@ html.theme-dark .page-producto strong {
   color: var(--color-text);
 }
 
-
 /* ============================================================================================================================================ */
 
 /* =========================================================
@@ -1328,10 +1412,13 @@ html.theme-dark .page-producto strong {
    ========================================================= */
 
 .card-busqueda {
-  background: linear-gradient(rgba(255,255,255,0.9), rgba(255, 255, 255, 0.452)),
-              url("../img/fondo.png") center/cover no-repeat;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.452)
+    ),
+    url("../img/fondo.png") center/cover no-repeat;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1354,7 +1441,7 @@ html.theme-dark .page-producto strong {
 
 .card-content h4 {
   color: var(--color-primary);
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   font-size: 1.1rem;
   text-transform: uppercase;
   font-weight: 700;
@@ -1389,7 +1476,7 @@ html.theme-dark .page-producto strong {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 55px;      
+  height: 55px;
   padding: 0 1.6rem;
   border-radius: 2rem;
   font-size: 0.95rem;
@@ -1400,7 +1487,7 @@ html.theme-dark .page-producto strong {
 
 .card-busqueda a.btn,
 .card-busqueda a.btn span {
-  color: var(--color-text2) ;
+  color: var(--color-text2);
 }
 
 .card-busqueda .btn.icono-circular,
@@ -1448,15 +1535,14 @@ html.theme-dark .page-busqueda section {
 
 /* Tarjetas */
 html.theme-dark .page-busqueda .card-busqueda {
-  background:
-    linear-gradient(rgba(112,112,112,0.15), rgba(90,90,90,0.45)),
+  background: linear-gradient(rgba(112, 112, 112, 0.15), rgba(90, 90, 90, 0.45)),
     url("../img/fondo.png") center/cover no-repeat;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
 }
 
 /* Título tarjeta */
 html.theme-dark .page-busqueda .card-busqueda h4 {
-  color: var(--color-primary) ;
+  color: var(--color-primary);
 }
 
 /* Texto tarjeta */
@@ -1489,9 +1575,9 @@ html.theme-dark .resultado-titulo {
 /* Campo de búsqueda */
 html.theme-dark .page-busqueda input {
   background: var(--color-bg-panel);
-  border-color: rgba(255,255,255,0.4);
+  border-color: rgba(255, 255, 255, 0.4);
   color: var(--color-text2);
 }
 html.theme-dark .page-busqueda input::placeholder {
-  color: rgba(255,255,255,0.65);
+  color: rgba(255, 255, 255, 0.65);
 }
