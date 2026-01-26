@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -68,8 +68,8 @@
         border-radius: 4px;
         transition: top 0.3s ease;
       "
-      onfocus="this.style.top='10px'"
-      onblur="this.style.top='-40px'"
+      onfocus="this.style.top = '10px'"
+      onblur="this.style.top = '-40px'"
     >
       Saltar al contenido principal
     </a>
@@ -112,18 +112,19 @@
             <a href="#">Competiciones</a>
             <a href="#">Noticias</a>
             <a href="#">Galería</a>
-            <a href="#">Contacto</a>
+            <a href="contacto.html">Contacto</a>
           </nav>
 
           <!-- ICONOS Y MENÚ -->
           <div class="flex items-center gap-4">
-            <button
+            <a
+              href="carrito.html"
               class="icon-btn"
               title="Carrito"
-              aria-label="Abrir carrito de compra"
+              aria-label="Ver carrito de compra"
             >
               <i data-lucide="shopping-cart" aria-hidden="true"></i>
-            </button>
+            </a>
             <button
               class="icon-btn"
               title="Usuario"
@@ -226,8 +227,7 @@
               <a href="#" class="menu-link">Competiciones</a>
               <a href="#" class="menu-link">Noticias</a>
               <a href="#" class="menu-link">Galería</a>
-              <a href="#" class="menu-link">Contacto</a>
-
+              <a href="contacto.html" class="menu-link">Contacto</a>
               <hr class="menu-divider" />
 
               <!-- Cuadro de usuario -->
@@ -317,7 +317,7 @@
           >
             <div
               class="hero-slide-bg"
-              style="--hero-img: url('../img/hero1.png')"
+              style="--hero-img: url(&quot;../img/hero1.png&quot;)"
               aria-hidden="true"
             ></div>
             <div class="overlay" aria-hidden="true"></div>
@@ -348,7 +348,7 @@
           >
             <div
               class="hero-slide-bg"
-              style="--hero-img: url('../img/hero2.png')"
+              style="--hero-img: url(&quot;../img/hero22.png&quot;)"
               aria-hidden="true"
             ></div>
             <div class="overlay" aria-hidden="true"></div>
@@ -380,7 +380,7 @@
           >
             <div
               class="hero-slide-bg"
-              style="--hero-img: url('../img/hero3.png')"
+              style="--hero-img: url(&quot;../img/hero3.png&quot;)"
               aria-hidden="true"
             ></div>
             <div class="overlay" aria-hidden="true"></div>
@@ -606,7 +606,7 @@
       <section
         class="franja text-center"
         style="
-          --franja-img: url('../img/franja.jpg');
+          --franja-img: url(&quot;../img/franja.jpg&quot;);
           --franja-overlay: rgba(11, 60, 93, 0.55);
         "
       >
@@ -872,7 +872,7 @@
             <h4
               class="font-bold text-lg mb-3 uppercase tracking-wide text-center"
             >
-              Contacto
+              <a id="footer-contacto" href="contacto.html">Contacto</a>
             </h4>
             <ul class="space-y-2 text-sm text-left mx-auto w-fit">
               <!-- Campo de tiro de Gádor -->

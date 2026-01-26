@@ -1519,7 +1519,7 @@ html.theme-dark .page-producto strong {
 }
 
 /* =========================================================
-   🌙 MODO OSCURO — BÚSQUEDA
+   MODO OSCURO — BÚSQUEDA
    ========================================================= */
 
 html.theme-dark .page-busqueda {
@@ -1581,3 +1581,206 @@ html.theme-dark .page-busqueda input {
 html.theme-dark .page-busqueda input::placeholder {
   color: rgba(255, 255, 255, 0.65);
 }
+
+/* =====================================
+ CONTACTO 
+===================================== */
+
+/* Cancelar card-fondo vertical */
+.bienvenida-fix {
+  min-height: auto;
+  height: auto;
+  display: block;
+}
+
+/* Grid horizontal */
+.bienvenida-grid {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  align-items: stretch;
+}
+.bienvenida-reverse {
+  direction: rtl;
+}
+
+.bienvenida-reverse > * {
+  direction: ltr;
+}
+
+/* Imagen lateral */
+.bienvenida-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Texto */
+.bienvenida-texto {
+  padding: 1.8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.bienvenida-texto h3 {
+  text-align: left;
+}
+.texto-rojo {
+  color: var(--color-botton);
+  font-weight: 700;
+}
+.card-contacto {
+  min-height: auto;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bienvenida-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bienvenida-img img {
+    height: 200px;
+  }
+}
+
+#footer-contacto {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
+#footer-contacto:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.card-formulario {
+  min-height: auto;
+  height: auto;
+}
+
+.card-formulario .p-5,
+.card-formulario .p-6,
+.card-formulario .p-8 {
+  padding-bottom: 1rem;
+}
+
+/* CONTENEDOR IMAGEN */
+.equipo-img {
+  position: relative;
+  overflow: hidden;
+}
+
+/* IMAGEN */
+.equipo-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* FILTRO SUAVE DERECHA  */
+.equipo-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 60%;
+  height: 100%;
+
+  background: linear-gradient(
+    to left,
+    rgba(11, 60, 93, 0.75),
+    rgba(11, 60, 93, 0.4),
+    rgba(11, 60, 93, 0)
+  );
+
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* TEXTO AUTOR */
+.credito-img {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+
+  font-size: 11px;
+  color: #fff;
+
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4px 8px;
+  border-radius: 6px;
+
+  backdrop-filter: blur(3px);
+
+  z-index: 3;
+}
+
+/* ===== TARJETAS MODO OSCURO ===== */
+
+html.theme-dark .card-fondo {
+  color: #000;
+}
+
+html.theme-dark .card-fondo h1,
+html.theme-dark .card-fondo h2,
+html.theme-dark .card-fondo h3,
+html.theme-dark .card-fondo h4,
+html.theme-dark .card-fondo p,
+html.theme-dark .card-fondo li,
+html.theme-dark .card-fondo span,
+html.theme-dark .card-fondo strong {
+  color: #000 !important;
+}
+html.theme-dark .card-fondo .credito-img {
+  color: #fff !important;
+}
+
+/* Redes sociales tarjeta contacto */
+.redes-contacto {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+/* Iconos */
+.redes-contacto svg {
+  width: 30px;
+  height: 30px;
+  stroke: var(--color-botton);
+  transition: all 0.25s ease;
+}
+
+/* Hover */
+.redes-contacto a:hover svg {
+  stroke: var(--color-accent);
+  transform: translateY(-2px) scale(1.15);
+}
+
+.cart-icon {
+  width: 22px;
+  height: 22px;
+  color: #000;
+  transition: all 0.2s ease;
+}
+
+.cart-action:hover .cart-icon {
+  color: #a83636;
+  transform: scale(1.15);
+}
+
+.arrow-down {
+  margin-top: 60px;
+}
+
+

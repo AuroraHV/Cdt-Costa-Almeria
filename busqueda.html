@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -52,6 +52,24 @@
     </script>
   </head>
 
+  <!-- LIGHTBOX GLOBAL -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[9999]"
+  >
+    <img
+      id="lightbox-img"
+      class="max-w-[90%] max-h-[90%] rounded-lg shadow-xl"
+    />
+
+    <button
+      onclick="closeLightbox()"
+      class="absolute top-6 right-6 text-white text-3xl font-bold"
+    >
+      ✕
+    </button>
+  </div>
+
   <body class="transition-colors duration-500">
     <!-- Enlace de salto al contenido principal (Skip Link) -->
     <a
@@ -68,8 +86,8 @@
         border-radius: 4px;
         transition: top 0.3s ease;
       "
-      onfocus="this.style.top='10px'"
-      onblur="this.style.top='-40px'"
+      onfocus="this.style.top = '10px'"
+      onblur="this.style.top = '-40px'"
     >
       Saltar al contenido principal
     </a>
@@ -112,19 +130,19 @@
             <a href="#">Competiciones</a>
             <a href="#">Noticias</a>
             <a href="#">Galería</a>
-            <a href="#">Contacto</a>
+            <a href="contacto.html">Contacto</a>
           </nav>
 
           <!-- ICONOS Y MENÚ -->
           <div class="flex items-center gap-4">
-            <button
+            <a
+              href="carrito.html"
               class="icon-btn"
               title="Carrito"
-              aria-label="Abrir carrito de compra"
-              type="button"
+              aria-label="Ver carrito de compra"
             >
               <i data-lucide="shopping-cart" aria-hidden="true"></i>
-            </button>
+            </a>
             <button
               class="icon-btn"
               title="Usuario"
@@ -230,7 +248,7 @@
               <a href="#" class="menu-link">Competiciones</a>
               <a href="#" class="menu-link">Noticias</a>
               <a href="#" class="menu-link">Galería</a>
-              <a href="#" class="menu-link">Contacto</a>
+              <a href="contacto.html" class="menu-link">Contacto</a>
 
               <hr class="menu-divider" />
 
@@ -308,7 +326,7 @@
       <!-- HERO -->
       <section
         class="relative h-[24vh] md:h-[28vh] bg-cover bg-center flex items-center"
-        style="background-image: url('img/hero-busqueda.png')"
+        style="background-image: url(&quot;img/hero-busqueda.png&quot;)"
         aria-labelledby="hero-busqueda-heading"
       >
         <div class="absolute inset-0 bg-[#0B3C5D]/70"></div>
@@ -383,9 +401,20 @@
             aria-label="Curso Licencia F - Carabina 50 M, curso de tiro deportivo con carabina en Almería"
           >
             <img
-              src="img/carabina1.png"
+              src="img/carabina1p.png"
+              srcset="
+                img/carabina1p.png  400w,
+                img/carabina1m.png  800w,
+                img/carabina1g.png 1600w
+              "
+              sizes="(max-width: 768px) 100vw, 300px"
+              loading="lazy"
+              decoding="async"
               alt="Curso de tiro con carabina 50 metros para licencia F en Almería"
+              onclick="openLightbox('img/carabina1g.png')"
+              class="cursor-zoom-in"
             />
+
             <div class="card-content">
               <h4>Curso Licencia F - Carabina 50 M</h4>
               <p>
@@ -421,9 +450,20 @@
             aria-label="Curso Licencia E - Carabina 50 M, curso de tiro deportivo para licencia E"
           >
             <img
-              src="img/carabina3.jpg"
-              alt="Curso de tiro con carabina 50 metros para licencia E"
+              src="img/carabina3p.png"
+              srcset="
+                img/carabina3p.png  400w,
+                img/carabina3m.png  800w,
+                img/carabina3g.png 1600w
+              "
+              sizes="(max-width: 768px) 100vw, 300px"
+              loading="lazy"
+              decoding="async"
+              alt="Curso de tiro con carabina 50 metros para licencia D"
+              onclick="openLightbox('img/carabina3g.png')"
+              class="cursor-zoom-in"
             />
+
             <div class="card-content">
               <h4>Curso Licencia E - Carabina 50 M</h4>
               <p>
@@ -459,9 +499,20 @@
             aria-label="Curso Licencia D - Carabina 50 M, curso de tiro deportivo con rifle"
           >
             <img
-              src="img/carabina2.png"
-              alt="Curso de tiro con carabina 50 metros para licencia D"
+              src="img/carabina2p.png"
+              srcset="
+                img/carabina2p.png  400w,
+                img/carabina2m.png  800w,
+                img/carabina2g.png 1600w
+              "
+              sizes="(max-width: 768px) 100vw, 300px"
+              loading="lazy"
+              decoding="async"
+              alt="Curso de tiro con carabina 50 metros para licencia E"
+              onclick="openLightbox('img/carabina2g.png')"
+              class="cursor-zoom-in"
             />
+
             <div class="card-content">
               <h4>Curso Licencia D - Carabina 50 M</h4>
               <p>
@@ -497,19 +548,25 @@
             aria-label="Curso Avanzado - Carabina de Precisión, curso avanzado de tiro deportivo"
           >
             <img
-              src="img/carabina4.jpg"
+              src="img/carabina4p.png"
+              srcset="
+                img/carabina4p.png  400w,
+                img/carabina4m.png  800w,
+                img/carabina4g.png 1600w
+              "
+              sizes="(max-width: 768px) 100vw, 300px"
+              loading="lazy"
+              decoding="async"
               alt="Curso avanzado de tiro con carabina de precisión en Almería"
+              onclick="openLightbox('img/carabina4g.png')"
+              class="cursor-zoom-in"
             />
+
             <div class="card-content">
               <h4>Curso Avanzado - Carabina de Precisión</h4>
               <p>
                 Entrenamiento avanzado para tiradores que buscan mejorar su
                 precisión en distancias largas.
-              </p>
-              <p class="mt-2">
-                Si quieres ver más opciones de
-                <a href="producto.html">tiro deportivo en Almería</a>, visita
-                nuestro curso de pistola estándar.
               </p>
               <div class="precio-btn">
                 <span>450 €</span>
@@ -548,7 +605,7 @@
             <h4
               class="font-bold text-lg mb-3 uppercase tracking-wide text-center"
             >
-              Contacto
+              <a id="footer-contacto" href="contacto.html">Contacto</a>
             </h4>
             <ul class="space-y-2 text-sm text-left mx-auto w-fit">
               <!-- Campo de tiro de Gádor -->

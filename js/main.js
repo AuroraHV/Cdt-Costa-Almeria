@@ -288,3 +288,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// ===========================
+// LIGHTBOX GLOBAL
+// ===========================
+
+function openLightbox(imgSrc) {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  lightboxImg.src = imgSrc;
+  lightbox.classList.remove("hidden");
+  lightbox.classList.add("flex");
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById("lightbox");
+
+  lightbox.classList.add("hidden");
+  lightbox.classList.remove("flex");
+}

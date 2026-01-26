@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -8,10 +8,7 @@
       content="Curso de tiro pistola estándar 25M del Club de Tiro Olímpico Costa Almería. Formación para obtener la licencia F y practicar tiro deportivo en Almería."
     />
     <meta name="robots" content="index, follow" />
-    <title>
-      Curso de tiro pistola estándar 25M | Club de Tiro Olímpico Costa Almería |
-      Tiro deportivo en Almería
-    </title>
+    <title>Curso de tiro pistola estándar 25M</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/logo.png" />
     <!-- CSS -->
@@ -68,8 +65,8 @@
         border-radius: 4px;
         transition: top 0.3s ease;
       "
-      onfocus="this.style.top='10px'"
-      onblur="this.style.top='-40px'"
+      onfocus="this.style.top = '10px'"
+      onblur="this.style.top = '-40px'"
     >
       Saltar al contenido principal
     </a>
@@ -113,20 +110,19 @@
             >
             <a href="#">Competiciones</a>
             <a href="#">Noticias</a>
-            <a href="#">Galería</a>
-            <a href="#">Contacto</a>
+            <a href="contacto.html">Contacto</a>
           </nav>
 
           <!-- ICONOS Y MENÚ -->
           <div class="flex items-center gap-4">
-            <button
+            <a
+              href="carrito.html"
               class="icon-btn"
               title="Carrito"
-              type="button"
               aria-label="Ver carrito de compra"
             >
               <i data-lucide="shopping-cart" aria-hidden="true"></i>
-            </button>
+            </a>
             <button
               class="icon-btn"
               title="Usuario"
@@ -240,7 +236,7 @@
               <a href="#" class="menu-link">Competiciones</a>
               <a href="#" class="menu-link">Noticias</a>
               <a href="#" class="menu-link">Galería</a>
-              <a href="#" class="menu-link">Contacto</a>
+              <a href="contacto.html" class="menu-link">Contacto</a>
 
               <hr class="menu-divider" />
 
@@ -320,7 +316,7 @@
       <!-- ========================================================= -->
       <section
         class="relative h-[24vh] md:h-[28vh] bg-cover bg-center flex items-center"
-        style="background-image: url('img/curso-pistola.png')"
+        style="background-image: url(&quot;img/curso-pistola.png&quot;)"
         aria-labelledby="curso-pistola-heading"
       >
         <div class="absolute inset-0 bg-[#0B3C5D]/70"></div>
@@ -413,7 +409,7 @@
       <section
         class="franja text-white text-right"
         style="
-          --franja-img: url('../img/curso-pistola-franja.png');
+          --franja-img: url(&quot;../img/curso-pistola-franja.png&quot;);
           --franja-overlay: linear-gradient(
             to left,
             rgba(0, 0, 0, 0.8) 30%,
@@ -549,7 +545,7 @@
             <h4
               class="font-bold text-lg mb-3 uppercase tracking-wide text-center"
             >
-              Contacto
+              <a id="footer-contacto" href="contacto.html">Contacto</a>
             </h4>
             <ul class="space-y-2 text-sm text-left mx-auto w-fit">
               <!-- Campo de tiro de Gádor -->

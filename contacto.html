@@ -1,0 +1,896 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Curso de tiro pistola estándar 25M del Club de Tiro Olímpico Costa Almería. Formación para obtener la licencia F y practicar tiro deportivo en Almería."
+    />
+    <meta name="robots" content="index, follow" />
+    <title>Contacto</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- JS -->
+    <script src="js/main.js"></script>
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Iconos Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-HJGHHLQSKZ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-HJGHHLQSKZ");
+    </script>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const q = urlParams.get("q");
+
+      if (q) {
+        gtag("event", "view_search_results", {
+          search_term: q,
+        });
+      }
+    </script>
+  </head>
+
+  <body class="transition-colors duration-500">
+    <!-- Enlace de salto al contenido principal (Skip Link) -->
+    <a
+      href="#contenido-principal"
+      class="skip-link"
+      style="
+        position: absolute;
+        top: -40px;
+        left: 10px;
+        background: #000;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        z-index: 9999;
+        border-radius: 4px;
+        transition: top 0.3s ease;
+      "
+      onfocus="this.style.top = '10px'"
+      onblur="this.style.top = '-40px'"
+    >
+      Saltar al contenido principal
+    </a>
+
+    <!-- ========================================================
+          HEADER
+    ========================================================= -->
+    <header class="header">
+      <div class="mx-auto flex justify-between items-center py-3 px-14">
+        <!-- LOGO Y CLUB -->
+        <a href="index.html" class="flex items-center gap-4 -translate-x-3">
+          <!-- Logo principal -->
+          <img
+            src="img/logo.png"
+            alt="Logo del club de tiro olímpico Costa Almería"
+            class="block sm:block md:block w-[70px] cursor-pointer logo-desktop"
+            title="Inicio"
+          />
+          <!-- Logo móvil -->
+          <img
+            src="img/logo-movil.png"
+            alt="Logo del club de tiro olímpico Costa Almería en versión móvil"
+            class="hidden w-[55px] cursor-pointer logo-mobile"
+            title="Inicio"
+          />
+          <!-- Nombre Club  -->
+          <h1 class="font-bold text-lg uppercase tracking-wide logo-text">
+            Club de Tiro
+            <span class="text-[var(--color-accent)]">Costa Almería</span>
+          </h1>
+        </a>
+
+        <!-- NAVEGACIÓN -->
+        <div class="flex items-center gap-7 translate-x-8">
+          <!-- Menú navegación -->
+          <nav class="hidden border-r pr-6" aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="#">El Club</a>
+            <a href="producto.html">Cursos</a>
+            <a href="#">Competiciones</a>
+            <a href="#">Noticias</a>
+            <a href="#">Galería</a>
+            <a href="contacto.html" class="active" aria-current="page"
+              >Contacto</a
+            >
+          </nav>
+
+          <!-- ICONOS Y MENÚ -->
+          <div class="flex items-center gap-4">
+            <a
+              href="carrito.html"
+              class="icon-btn"
+              title="Carrito"
+              aria-label="Ver carrito de compra"
+            >
+              <i data-lucide="shopping-cart" aria-hidden="true"></i>
+            </a>
+            <button
+              class="icon-btn"
+              title="Usuario"
+              type="button"
+              aria-label="Acceder al perfil de usuario"
+            >
+              <i data-lucide="user" aria-hidden="true"></i>
+            </button>
+            <button
+              id="menuToggle"
+              class="icon-btn"
+              title="Abrir menú"
+              type="button"
+              aria-label="Abrir menú de navegación"
+              aria-controls="sideMenu"
+              aria-expanded="false"
+            >
+              <i data-lucide="menu" id="menuIcon" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========================================================
+          PANEL LATERAL
+    ========================================================= -->
+    <div
+      id="sideMenu"
+      class="side-menu-closed shadow-2xl fixed top-0 right-0 h-full z-50 w-[280px] md:w-[320px] transition-all duration-300"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-label="Menú lateral de navegación"
+    >
+      <div class="menu-bg fractal-bg w-full h-full flex flex-col">
+        <div class="flex-1 overflow-y-auto pb-24">
+          <!-- CABECERA-->
+          <div>
+            <div class="menu-header">
+              <h2>Menú</h2>
+              <button
+                id="closeMenu"
+                class="icon-btn"
+                title="Cerrar menú"
+                type="button"
+                aria-label="Cerrar menú de navegación"
+              >
+                <i data-lucide="x" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <!-- BUSCADOR -->
+            <div class="p-4">
+              <form
+                id="menuSearchForm"
+                action="busqueda.html"
+                method="GET"
+                class="flex items-center rounded-md px-3 py-2"
+              >
+                <label for="menuSearchInput" class="sr-only"
+                  >Buscar en el sitio</label
+                >
+                <!-- Botón de la lupa -->
+                <button
+                  type="submit"
+                  id="menuSearchBtn"
+                  class="flex items-center justify-center w-6 h-6 cursor-pointer"
+                  aria-label="Buscar en la web"
+                  title="Buscar"
+                >
+                  <i
+                    data-lucide="search"
+                    class="w-4 h-4 cursor-pointer"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+
+                <span
+                  class="separator-line mx-2 h-5 w-[1px] opacity-70"
+                  aria-hidden="true"
+                ></span>
+
+                <!-- Campo de entrada -->
+                <input
+                  id="menuSearchInput"
+                  name="q"
+                  type="text"
+                  placeholder="Buscar..."
+                  class="ml-2 flex-1 outline-none bg-transparent text-black"
+                  aria-label="Buscar en el sitio"
+                />
+              </form>
+
+              <hr class="menu-divider" />
+            </div>
+
+            <!-- ENLACES DEL MENÚ -->
+            <nav
+              class="px-4 pt-0 pb-4 flex flex-col gap-3"
+              aria-label="Menú lateral"
+            >
+              <a href="index.html" class="menu-link">Inicio</a>
+              <a href="#" class="menu-link">El Club</a>
+              <a href="producto.html" class="menu-link">Cursos</a>
+              <a href="#" class="menu-link">Competiciones</a>
+              <a href="#" class="menu-link">Noticias</a>
+              <a
+                href="contacto.html"
+                class="menu-link active"
+                aria-current="page"
+                >Contacto</a
+              >
+
+              <hr class="menu-divider" />
+
+              <!-- Cuadro de usuario -->
+              <div
+                class="user-box rounded-md p-3 flex flex-col items-start gap-2 shadow-md"
+              >
+                <a
+                  href="#"
+                  class="flex items-center gap-2 font-semibold transition-colors duration-300 hover:text-[#EAC42D]"
+                >
+                  <i
+                    data-lucide="user"
+                    class="w-5 h-5 transition-colors duration-300"
+                    aria-hidden="true"
+                  ></i>
+                  <span>PERFIL DE USUARIO</span>
+                </a>
+                <p class="text-sm text-gray-600 italic">
+                  No has iniciado sesión
+                </p>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <!-- FOOTER PANEL -->
+        <div
+          class="language-darkmode-container w-full flex items-center justify-between px-6 py-4 border-t border-white/20 z-50"
+        >
+          <!-- Lenguaje -->
+          <div class="language-select flex items-center gap-2">
+            <i data-lucide="globe" class="w-5 h-5" aria-hidden="true"></i>
+            <label for="languageSelect" class="sr-only"
+              >Seleccionar idioma</label
+            >
+            <select
+              id="languageSelect"
+              class="bg-transparent border-none outline-none font-semibold"
+              aria-label="Seleccionar idioma"
+            >
+              <option>ES</option>
+              <option>EN</option>
+            </select>
+          </div>
+
+          <!-- Modo oscuro -->
+          <button
+            id="darkModeSwitch"
+            class="cursor-pointer"
+            role="switch"
+            aria-checked="false"
+            aria-label="Activar o desactivar modo oscuro"
+            type="button"
+          >
+            <div
+              class="switch-track relative w-11 h-6 rounded-full bg-white/30"
+            >
+              <div
+                class="switch-thumb absolute top-[2px] left-[2px] w-5 h-5 rounded-full bg-white transition-all duration-300"
+              ></div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div id="overlay"></div>
+
+    <!-- ========================================================= -->
+    <!-- MAIN -->
+    <!-- ========================================================= -->
+    <main id="contenido-principal" class="page-producto">
+      <!-- ========================================================= -->
+      <!--  HERO -->
+      <!-- ========================================================= -->
+      <section
+        class="relative h-[24vh] md:h-[28vh] bg-cover bg-center flex items-center"
+        style="background-image: url(&quot;img/hero2.png&quot;)"
+        aria-labelledby="curso-pistola-heading"
+      >
+        <div class="absolute inset-0 bg-[#0B3C5D]/70"></div>
+        <div
+          class="relative z-10 text-white max-w-3xl pl-[clamp(2.5rem,12vw,12rem)] -mt-[clamp(1.5rem,4vh,2.5rem)]"
+        >
+          <h2
+            id="curso-pistola-heading"
+            class="font-extrabold uppercase tracking-wide mb-2 text-[clamp(1.8rem,3vw,2.8rem)] leading-tight mt-2"
+          >
+            Contacto
+          </h2>
+
+          <p class="text-[clamp(1.1rem,1.8vw,1.3rem)] opacity-90 mt-5">
+            Conócenos y si tienes alguna duda, no dudes en ponerte en contacto
+            con nosotros.
+          </p>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!--  BLOQUES  -->
+      <!-- ========================================================= -->
+      <section class="py-7 px-6 md:px-16">
+        <div class="container mx-auto max-w-6xl">
+          <article class="card-fondo bienvenida-fix overflow-hidden">
+            <div class="bienvenida-grid">
+              <!-- Imagen -->
+              <div class="bienvenida-img">
+                <img src="img/club.png" alt="Club CDT Costa de Almería" />
+              </div>
+
+              <!-- Texto -->
+              <div class="bienvenida-texto">
+                <h3>BIENVENIDO/A A NUESTRO CLUB</h3>
+
+                <p>
+                  El club nació con el objetivo de acercar el tiro olímpico a
+                  todos los públicos, fomentando la disciplina, la seguridad y
+                  el espíritu competitivo. A lo largo de su trayectoria nos
+                  hemos consolidado como un referente en Almería.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="px-6 md:px-16">
+        <div class="container mx-auto max-w-6xl">
+          <article class="card-fondo bienvenida-fix overflow-hidden">
+            <div class="bienvenida-grid bienvenida-reverse">
+              <!-- Imagen -->
+              <div class="bienvenida-img equipo-img">
+                <img
+                  src="img/equipo.png"
+                  alt="Equipo del Club de Tiro Costa de Almería"
+                />
+                <span class="credito-img"> Foto CC0 — Unsplash </span>
+              </div>
+
+              <!-- Texto -->
+              <div class="bienvenida-texto">
+                <h3>NUESTRO EQUIPO</h3>
+
+                <p>
+                  Somos un equipo de entrenadores y socios apasionados por el
+                  tiro deportivo, con años de experiencia en competiciones
+                  nacionales e internacionales, comprometidos con la formación y
+                  la promoción de este deporte en la provincia.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- =============
+        CONTACTO
+      ================== -->
+      <section id="noticias" class="pt-16 pb-8">
+        <div class="container mx-auto text-center mb-10">
+          <h2
+            class="text-3xl font-bold uppercase"
+            role="heading"
+            aria-level="2"
+            tabindex="0"
+          >
+            Contacta con el club
+          </h2>
+        </div>
+
+        <!-- Tarjetas -->
+        <div class="grid md:grid-cols-3 gap-8 container mx-auto px-6">
+          <!-- Tarjeta 1 -->
+          <article
+            class="card-fondo card-contacto shadow-lg rounded-lg overflow-hidden"
+            role="article"
+            tabindex="0"
+            aria-label="Contacto telefónico del club"
+          >
+            <img
+              src="img/telefono.svg"
+              alt="Háblanos"
+              class="w-full h-48 object-cover"
+            />
+
+            <div class="p-5 text-left flex flex-col">
+              <div>
+                <h3 class="font-bold text-xl">Háblanos</h3>
+
+                <p class="text-sm text-gray-700 mt-2">
+                  Si tienes cualquier duda, o quieres informarte sobre los
+                  cursos de iniciación o nuestras competiciones, llámanos al
+                  <span class="texto-rojo">695 79 11 98</span>
+                  o escríbenos por WhatsApp a ese mismo número.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta 2 -->
+          <article
+            class="card-fondo card-contacto shadow-lg rounded-lg overflow-hidden"
+            role="article"
+            tabindex="0"
+            aria-label="Contacto por correo electrónico"
+          >
+            <img
+              src="img/correo.svg"
+              alt="Escríbenos"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-5 text-left flex flex-col">
+              <div>
+                <h3 class="font-bold text-xl">ESCRÍBENOS</h3>
+                <p class="text-sm text-gray-700 mt-2">
+                  Escríbenos a nuestro correo
+                  <span class="texto-rojo">info@cdtirocostadealmeria.com</span>
+                  y estaremos encantados de atenderte y orientarte para que
+                  formes parte de nuestra comunidad.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta 3-->
+          <article
+            class="card-fondo card-contacto shadow-lg rounded-lg overflow-hidden"
+            role="article"
+            tabindex="0"
+            aria-label="Redes sociales del club"
+          >
+            <img
+              src="img/rrss.svg"
+              alt="Síguenos"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-5 text-left flex flex-col">
+              <div>
+                <h3 class="font-bold text-xl">SÍGUENOS</h3>
+
+                <p class="text-sm text-gray-700 mt-2">
+                  En nuestras redes sociales podrás obtener más información.
+                </p>
+
+                <!-- ICONOS REDES -->
+                <div class="redes-contacto">
+                  <a href="#" aria-label="Facebook">
+                    <i data-lucide="facebook"></i>
+                  </a>
+
+                  <a href="#" aria-label="Instagram">
+                    <i data-lucide="instagram"></i>
+                  </a>
+
+                  <a href="#" aria-label="YouTube">
+                    <i data-lucide="youtube"></i>
+                  </a>
+
+                  <a href="#" aria-label="Twitter">
+                    <i data-lucide="twitter"></i>
+                  </a>
+
+                  <a href="#" aria-label="LinkedIn">
+                    <i data-lucide="linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!--  VISITA -->
+      <!-- ========================================================= -->
+      <section class="pt-8 pb-4" aria-labelledby="horarios-visita">
+        <div class="container mx-auto text-center mb-10">
+          <h2
+            id="calendario-licencia-heading"
+            class="titulo-calendario text-2xl md:text-3xl mt-0 font-bold uppercase text-[var(--color-primary)]"
+          >
+            VISITA EL CLUB
+          </h2>
+        </div>
+
+        <!-- Grid de tarjetas -->
+        <div class="grid md:grid-cols-2 gap-10 container mx-auto px-6">
+          <!-- Tarjeta 1 -->
+          <article class="card-fondo">
+            <img src="img/gador.png" alt="Gádor" />
+            <div class="p-5 flex flex-col">
+              <div>
+                <h3 class="text-center mb-3">Gádor (04560, Almería)</h3>
+                <div class="flex items-center gap-2 text-sm">
+                  <i data-lucide="clock" class="w-4 h-4"></i>
+                  <span>Miércoles de 16:00 a 20:00</span>
+                </div>
+                <div class="flex items-center gap-2 text-sm">
+                  <i data-lucide="" class="w-4 h-4"></i>
+                  <span> </span>
+                </div>
+                <div class="mt-3 rounded overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps?q=Campo+de+Tiro+de+Gádor+Almería&output=embed"
+                    class="w-full h-[160px] border-0"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta 2 -->
+          <article class="card-fondo">
+            <img src="img/roquetas.png" alt="Roquetas de Mar" />
+            <div class="p-5 flex flex-col">
+              <div>
+                <h3 class="text-center mb-3">
+                  Roquetas de Mar (04720, Almería)
+                </h3>
+                <div class="flex items-center gap-2 text-sm">
+                  <i data-lucide="clock" class="w-4 h-4"></i>
+                  <span>Lunes 10:00 a 12:00</span>
+                </div>
+
+                <div class="flex items-center gap-2 text-sm">
+                  <i data-lucide="clock" class="w-4 h-4"></i>
+                  <span>Martes a Jueves de 16:00 a 20:00</span>
+                </div>
+                <div class="mt-3 rounded overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps?q=Campo+de+Tiro+Roquetas+de+Mar+Almería&output=embed"
+                    class="w-full h-[160px] border-0"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!--  VIDEO Y FORMULARIO CONTACTO -->
+      <!-- ========================================================= -->
+
+      <section class="py-12 px-6 md:px-16">
+        <div class="container mx-auto max-w-5xl">
+          <!-- VIDEO -->
+          <div class="mb-10 aspect-video rounded-lg overflow-hidden shadow-lg">
+            <iframe
+              src="https://www.youtube.com/embed/UqUvT16m6GE?cc_load_policy=1"
+              title="Video Club Tiro Costa Almería"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+              class="w-full h-full"
+            ></iframe>
+          </div>
+
+          <!-- FORMULARIO -->
+          <article class="card-fondo card-formulario p-6 md:p-8 rounded-lg">
+            <h3 class="text-center font-bold uppercase mb-6">
+              Formulario de contacto
+            </h3>
+
+            <form class="grid md:grid-cols-4 gap-4">
+              <!-- Nombre -->
+              <div>
+                <label class="block text-sm font-semibold mb-1">NOMBRE</label>
+                <input
+                  type="text"
+                  placeholder="Introduce tu nombre"
+                  class="w-full border rounded px-3 py-2"
+                />
+              </div>
+
+              <!-- Apellidos -->
+              <div>
+                <label class="block text-sm font-semibold mb-1"
+                  >APELLIDOS</label
+                >
+                <input
+                  type="text"
+                  placeholder="Introduce tus apellidos"
+                  class="w-full border rounded px-3 py-2"
+                />
+              </div>
+
+              <!-- Teléfono -->
+              <div>
+                <label class="block text-sm font-semibold mb-1">TELÉFONO</label>
+                <input
+                  type="tel"
+                  placeholder="Introduce tu teléfono"
+                  class="w-full border rounded px-3 py-2"
+                />
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label class="block text-sm font-semibold mb-1">EMAIL</label>
+                <input
+                  type="email"
+                  placeholder="Introduce tu email"
+                  class="w-full border rounded px-3 py-2"
+                />
+              </div>
+
+              <!-- Asunto -->
+              <div class="md:col-span-4">
+                <label class="block text-sm font-semibold mb-1">ASUNTO</label>
+                <input
+                  type="text"
+                  placeholder="Introduce tu asunto"
+                  class="w-full border rounded px-3 py-2"
+                />
+              </div>
+
+              <!-- Mensaje -->
+              <div class="md:col-span-4">
+                <label class="block text-sm font-semibold mb-1">MENSAJE</label>
+                <textarea
+                  rows="4"
+                  placeholder="Escribe aquí tu mensaje"
+                  class="w-full border rounded px-3 py-2"
+                ></textarea>
+              </div>
+
+              <!-- Política -->
+              <div class="md:col-span-4 flex items-center gap-2 text-sm">
+                <input type="checkbox" />
+                <span>
+                  He leído y acepto la
+                  <a href="#" class="underline">Política de Cookies</a> y la
+                  <a href="#" class="underline">Política de Privacidad</a>.
+                </span>
+              </div>
+
+              <!-- Botón -->
+              <div class="md:col-span-4 text-right">
+                <button type="submit" class="btn">Enviar</button>
+              </div>
+            </form>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================================
+          FOOTER
+    ========================================================= -->
+    <footer class="site-footer pt-10 pb-6">
+      <div class="container mx-auto px-4">
+        <!-- Columnas principales -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+          <!-- Contacto -->
+          <div>
+            <h4
+              class="font-bold text-lg mb-3 uppercase tracking-wide text-center"
+            >
+              <a id="footer-contacto" href="contacto.html">Contacto</a>
+            </h4>
+            <ul class="space-y-2 text-sm text-left mx-auto w-fit">
+              <!-- Campo de tiro de Gádor -->
+              <li class="flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4" aria-hidden="true"></i>
+                <a
+                  href="https://maps.app.goo.gl/JAphdzb65JCNVdXF9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer-link"
+                >
+                  Campo de Tiro de Gádor (04560, Almería)
+                </a>
+              </li>
+
+              <!-- Campo de tiro de Roquetas -->
+              <li class="flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4" aria-hidden="true"></i>
+                <a
+                  href="https://maps.app.goo.gl/XpKo6eNqcVYaY5Ya7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer-link"
+                >
+                  Campo de Tiro de Roquetas de Mar (04720, Almería)
+                </a>
+              </li>
+
+              <!-- WhatsApp -->
+              <li class="flex items-center gap-2">
+                <i data-lucide="phone" class="w-4 h-4" aria-hidden="true"></i>
+                <a
+                  href="https://wa.me/34695791198"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer-link"
+                >
+                  695 79 11 98
+                </a>
+              </li>
+
+              <!-- Correo -->
+              <li class="flex items-center gap-2">
+                <i data-lucide="mail" class="w-4 h-4" aria-hidden="true"></i>
+                <a
+                  href="mailto:info@cdtirocostadealmeria.com"
+                  class="footer-link"
+                >
+                  info@cdtirocostadealmeria.com
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Legal -->
+          <div class="text-center">
+            <h4 class="font-bold text-lg mb-3 uppercase tracking-wide">
+              Legal
+            </h4>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="#">Política de Privacidad</a>
+              </li>
+              <li>
+                <a href="#">Política de Cookies</a>
+              </li>
+              <li><a href="#">Aviso legal</a></li>
+              <li>
+                <a href="#">Términos y condiciones</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Redes sociales -->
+          <div class="text-center">
+            <h4 class="font-bold text-lg mb-3 uppercase tracking-wide">
+              Síguenos
+            </h4>
+
+            <img
+              src="img/redes.jpg"
+              alt="Redes sociales del club de tiro Costa Almería"
+              class="footer-redes mx-auto mb-4 h-12 w-auto rounded shadow-md object-cover"
+            />
+
+            <div class="flex justify-center gap-5 text-2xl footer-social">
+              <a
+                href="#"
+                target="_blank"
+                aria-label="Facebook"
+                class="footer-icon"
+                title="Facebook"
+              >
+                <i data-lucide="facebook" aria-hidden="true"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                aria-label="Instagram"
+                class="footer-icon"
+                title="Instagram"
+              >
+                <i data-lucide="instagram" aria-hidden="true"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                aria-label="YouTube"
+                class="footer-icon"
+                title="YouTube"
+              >
+                <i data-lucide="youtube" aria-hidden="true"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                aria-label="Twitter"
+                class="footer-icon"
+                title="Twitter"
+              >
+                <i data-lucide="twitter" aria-hidden="true"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                aria-label="LinkedIn"
+                class="footer-icon"
+                title="LinkedIn"
+              >
+                <i data-lucide="linkedin" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="mt-6 text-center text-[13px] leading-tight">
+          © 2025 Club Deportivo de Tiro Costa de Almería. Todos los derechos
+          reservados.<br />
+          By <a href="#" class="text-[#EAC42D] hover:underline">ZeroPoint</a>.
+        </div>
+      </div>
+
+      <!-- Botón “Subir arriba” -->
+      <button
+        id="toTop"
+        class="hidden fixed bottom-8 right-8 outline-none z-[9999] transition transform hover:scale-110"
+        title="Subir arriba"
+        type="button"
+        aria-label="Volver al inicio de la página"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 64 80"
+          fill="none"
+          stroke="#EAC42D"
+          stroke-width="3.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="w-16 h-16 icon-diana-bala overflow-visible"
+          aria-hidden="true"
+        >
+          <circle class="diana" cx="32" cy="45" r="16"></circle>
+          <circle class="diana" cx="32" cy="45" r="9"></circle>
+          <circle class="diana" cx="32" cy="45" r="3"></circle>
+          <path
+            class="flecha"
+            d="M32 28 L32 5 M32 5 L27 10 M32 5 L37 10"
+          ></path>
+        </svg>
+      </button>
+    </footer>
+    <script>
+      lucide.createIcons();
+
+      const form = document.getElementById("menuSearchForm");
+      const iconBtn = document.getElementById("menuSearchBtn");
+
+      iconBtn.addEventListener("click", () => {
+        form.submit();
+      });
+    </script>
+  </body>
+</html>
